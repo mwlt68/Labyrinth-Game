@@ -34,7 +34,7 @@ public class DataVisualizeInGame : MonoBehaviour
         {
             MenuPanel.SetActive(true);
             pausePanel.SetActive(false);
-            timePanel.SetActive(false);
+  //          timePanel.SetActive(false);
         }
         else
             MenuPanel.SetActive(false);

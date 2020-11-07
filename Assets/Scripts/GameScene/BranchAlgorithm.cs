@@ -12,6 +12,7 @@ namespace BranchAlgorithm
         public int[,] map;
         public Size mapSize;
         public Point start, finish;
+        public List<Point> gameExitPoints;
         int branchCount;
         int branchLevel;//3
         Size mapBorder;//10,9
@@ -56,9 +57,9 @@ namespace BranchAlgorithm
         }
         private Point GetRandomFinishPoint()
         {
-            List<Point> endOfPivots=GetPointsOfLevel(branchLevel);
-            int rnd = random.Next(endOfPivots.Count);
-            return endOfPivots.ElementAt(rnd);
+            gameExitPoints=GetPointsOfLevel(branchLevel);
+            int rnd = random.Next(gameExitPoints.Count);
+            return gameExitPoints.ElementAt(rnd);
         }
         private void CreateMainPivots()
         {

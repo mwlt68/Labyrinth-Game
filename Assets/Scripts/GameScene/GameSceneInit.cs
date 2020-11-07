@@ -4,13 +4,11 @@ using System.Drawing;
 using UnityEngine;
 public class GameSceneInit : MonoBehaviour
 {
-
-    public Material defaultMaterial;
+    
     public Material playerMaterial;
-    public Material blockMaterial;
     public Material voidMaterial;
     public Material borderMaterial;
-    public Material finishMaterial;
+    public Material botMaterial;
 
     public Material random1Color;
     public Material random2Color;
@@ -32,6 +30,7 @@ public class GameSceneInit : MonoBehaviour
         Normal,
         Hard
     }
+    public bool isGameFinish;
     public static GamePlatform gamePlatform;
     public static GameMode gameMode;
     public static bool timerActive =true;
@@ -40,6 +39,7 @@ public class GameSceneInit : MonoBehaviour
     public  Point curPointOfPlayer;
     public  Point finishPoint;
     public int[,] map;
+    public BranchAlgorithm.BranchAlgorithm br;
     private List<Material> colors = new List<Material>(3);
     private Point squareSize;
     private LabirentAlgorithm labirentAlgorithm;
@@ -82,8 +82,9 @@ public class GameSceneInit : MonoBehaviour
     }
     private void GameStart()
     {
+        isGameFinish = false;
         dataVisualizeInGame = this.GetComponent<DataVisualizeInGame>();
-        BranchAlgorithm.BranchAlgorithm br = new BranchAlgorithm.BranchAlgorithm(4, new Size(10, 9));
+        br = new BranchAlgorithm.BranchAlgorithm(getBranchSize(), new Size(10, 9));
         map = br.map;
         mapSize = br.mapSize;
         curPointOfPlayer = br.start;
@@ -93,10 +94,33 @@ public class GameSceneInit : MonoBehaviour
         List<Point> points = GetPointsThenMap();
         PaintCubes(points,GameEvent.DirectionType.idle,false);
     }
+    private int  getBranchSize()
+    {
+        switch (gameMode)
+        {
+            case GameMode.Easy:
+                return 3;
+            case GameMode.Normal:
+                return 4;
+            case GameMode.Hard:
+                return 5;
+        }
+        return 3;
+    }
     public void GameFinish(bool doesWin)
     {
-        GameMain.player.AddExperience(GetExperienceFromGameMode());
-        dataVisualizeInGame.GameFinishComponentVisualize(doesWin, timer);
+        isGameFinish = true;
+        if (doesWin)
+        {
+            GameMain.player.AddExperience(GetExperienceFromGameMode());
+            dataVisualizeInGame.GameFinishComponentVisualize(doesWin, timer);
+        }
+        else
+        {
+            dataVisualizeInGame.GameFinishComponentVisualize(doesWin, timer);
+        }
+        
+        
     }
     private int GetExperienceFromGameMode()
     {
@@ -210,6 +234,8 @@ public class GameSceneInit : MonoBehaviour
                 {
                     if (item.X == finishPoint.X && item.Y == finishPoint.Y)
                         cubes[counter].GetComponent<Renderer>().material = playerMaterial;
+                    else if(item.X == Bot.botPosition.X && item.Y == Bot.botPosition.Y)
+                        cubes[counter].GetComponent<Renderer>().material = botMaterial;
                     else
                         cubes[counter].GetComponent<Renderer>().material = voidMaterial;
                 }

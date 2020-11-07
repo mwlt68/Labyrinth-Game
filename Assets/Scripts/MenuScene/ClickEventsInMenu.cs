@@ -7,10 +7,12 @@ public class ClickEventsInMenu : MonoBehaviour
 {
     [SerializeField]
     public GameObject mainCameraInMenu;
+    private SoundSystem soundSystem;
     DataVisualize dataVisualize;
     void Start()
     {
         dataVisualize = mainCameraInMenu.GetComponent<DataVisualize>();
+        soundSystem = mainCameraInMenu.GetComponent<SoundSystem>();
     }
 
     public void StartGame(int gameMode)
@@ -39,5 +41,10 @@ public class ClickEventsInMenu : MonoBehaviour
     public void BackInOptions()
     {
         dataVisualize.SaveOptionsChanges();
+        if (soundSystem != null)
+        {
+            soundSystem.SetAudioClipVolume();
+        }
+        
     }
 }

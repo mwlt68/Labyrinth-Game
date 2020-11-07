@@ -8,9 +8,11 @@ public class ClickEventsInGame : MonoBehaviour
     [SerializeField]
     public GameObject mainCameraInGame;
     private DataVisualizeInGame dataVisualizeInGame;
+    private SoundSystem soundSystem;
     void Start()
     {
         dataVisualizeInGame = mainCameraInGame.GetComponent<DataVisualizeInGame>();
+        soundSystem = this.GetComponent<SoundSystem>();
     }
     void Update()
     {
@@ -25,6 +27,10 @@ public class ClickEventsInGame : MonoBehaviour
         if (dataVisualizeInGame!= null)
         {
             dataVisualizeInGame.VolumeSliderChange();
+        }
+        if (soundSystem != null)
+        {
+            soundSystem.SetAudioClipVolume();
         }
     }
     public void ContinueBtn()

@@ -214,6 +214,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 65305419}
+        m_MethodName: ButtonClickClipPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &8570094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +524,9 @@ GameObject:
   - component: {fileID: 65305417}
   - component: {fileID: 65305416}
   - component: {fileID: 65305414}
+  - component: {fileID: 65305418}
+  - component: {fileID: 65305419}
+  - component: {fileID: 65305420}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -646,22 +660,157 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339c112f293fb1848b61575384ad3a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: fe6801fb86ac1444cafda071cc58d8f0, type: 2}
   playerMaterial: {fileID: 2100000, guid: 1a165332aa5fbe446a8bf773e4561a6e, type: 2}
-  blockMaterial: {fileID: 2100000, guid: 3db9047a584e8d64eb2c159383028d57, type: 2}
   voidMaterial: {fileID: 2100000, guid: 1b2f5b7eb25712b4f83dd1e3a3d58b77, type: 2}
   borderMaterial: {fileID: 2100000, guid: ecf449f677471974bb69f6de41954ff0, type: 2}
-  finishMaterial: {fileID: 2100000, guid: a54a97d29f269c6469ba8a4cc3538c17, type: 2}
+  botMaterial: {fileID: 2100000, guid: f3ba9a4977826304aba63fb9620546ca, type: 2}
   random1Color: {fileID: 2100000, guid: 5c86276a5ffa9094a96a6eaec43f8045, type: 2}
   random2Color: {fileID: 2100000, guid: d573b6a997099d443a42578dfe5f7960, type: 2}
   random3Color: {fileID: 2100000, guid: 13b681cd9ed0f0b4682623cb3a26f60e, type: 2}
   random4Color: {fileID: 2100000, guid: b42f92630b4342a40ac325c3063a3046, type: 2}
   random5Color: {fileID: 2100000, guid: 0868ff3adcbd00543ab36e41a771d36d, type: 2}
   random6Color: {fileID: 2100000, guid: 222b98818937b2140a9d60cfb0c01b76, type: 2}
+  isGameFinish: 0
   directionIdleReferanceObj: {fileID: 6068795409232812722, guid: 0a017d9e2e0a97a488a565d53983709b,
     type: 3}
   cubeReferance: {fileID: 4747133991848026243, guid: 3b918d4b567080848b95d0df5de50c9a,
     type: 3}
+--- !u!114 &65305418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65305410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c142f6d5dc14e45a34a03247fcd507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.72
+  botActive: 1
+--- !u!114 &65305419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65305410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b43bf1126acde4e828308a8916da59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 65305420}
+  btnClickClip: {fileID: 8300000, guid: 2b111c53322914d4e89ad4fcdc526bd0, type: 3}
+  gameTypeClip: {fileID: 8300000, guid: 0105072a7ae7dfa4999d5be6c1bfdc0d, type: 3}
+  gameLoseClip: {fileID: 8300000, guid: 2fc30673e07cd014e85d92a7e99206eb, type: 3}
+  gameQuitClip: {fileID: 8300000, guid: d0e82af6e560afc44aa3563b5aee0d74, type: 3}
+  gameWinClip: {fileID: 8300000, guid: 419566bbbae51ed46b104a0c87c66a42, type: 3}
+  gameClips:
+  - {fileID: 8300000, guid: 1303daf3717139b4abbf7d09abadc0e0, type: 3}
+  - {fileID: 8300000, guid: 91142091127e75b49bb38ce86edc0faf, type: 3}
+  - {fileID: 8300000, guid: f2ae5b8fe4143aa46a6721915ae53eda, type: 3}
+  - {fileID: 8300000, guid: c7b5c3bdc2916f84899f788b0a3981aa, type: 3}
+  - {fileID: 8300000, guid: e3777ac7950f58944adb16442540367c, type: 3}
+  - {fileID: 8300000, guid: fc8b721d44c749242b0f6adf7ea101e3, type: 3}
+  - {fileID: 8300000, guid: 91447af161eec9a4fb8e0625e5408bf6, type: 3}
+--- !u!82 &65305420
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65305410}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &116314496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,6 +1588,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 65305419}
+        m_MethodName: GameQuitClipPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
 --- !u!114 &754226763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1703,7 +1863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 429, y: 70.000015}
+  m_AnchoredPosition: {x: 404, y: 70.000015}
   m_SizeDelta: {x: 557.1, y: 183.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &933739384
@@ -2648,6 +2808,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 65305419}
+        m_MethodName: GameTypeClipPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
 --- !u!114 &1388302937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3028,8 +3199,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27.2, y: -0.000015259}
-  m_SizeDelta: {x: 859.7, y: 635}
+  m_AnchoredPosition: {x: 0, y: 0.000015258578}
+  m_SizeDelta: {x: 812.2, y: 635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1893112744
 MonoBehaviour:

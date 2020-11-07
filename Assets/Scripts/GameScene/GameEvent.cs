@@ -39,11 +39,12 @@ public class GameEvent : MonoBehaviour
         float minTime = 0.075f;
         float sensitivity = (100 - GameMain.optionData.sensitivityLevel);
         float res =minTime + 3*(sensitivity/ 1000);
-        Debug.Log(res);
+        Debug.Log("Auto Drive time :"+res);
         return res;
     }
     private void CheckEvent()
     {
+
         switch (GameSceneInit.gamePlatform)
         {
             case GameSceneInit.GamePlatform.Mobile:
@@ -172,7 +173,8 @@ public class GameEvent : MonoBehaviour
         gameSceneInit.curPointOfPlayer = point;
         List<Point> points = gameSceneInit.GetPointsThenMap();
         gameSceneInit.PaintCubes(points, dType,GetBoolAutoDrive(autoDriveDir));
-        DoesGameFinish(point);
+        if (DoesGameFinish(point))
+            gameSceneInit.GameFinish(true);
     }
 
     private bool IsPointSuitableForMove(Point p)
@@ -244,12 +246,13 @@ public class GameEvent : MonoBehaviour
 
     }
 
-    private void DoesGameFinish(Point point)
+    public bool DoesGameFinish(Point point)
     {
         if (point.X == gameSceneInit.finishPoint.X && point.Y == gameSceneInit.finishPoint.Y)
         {
-            gameSceneInit.GameFinish(true);
+            return true;
         }
+        return false;
     }
     private bool GetBoolAutoDrive(DirectionType dType)
     {
