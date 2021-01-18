@@ -1,6 +1,6 @@
 # Labyrinth-Game
 
-This game is my personal idea.Also I create labyrinth algorithm and bot algorithm.
+This game is my personal idea that developing on Unity.Also I create labyrinth algorithm and bot algorithm.
 
 You can watch game video from 'GameScreenShots/Oynanis.mp4'
 
