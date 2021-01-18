@@ -1,7 +1,10 @@
 # Labyrinth-Game
 
 This game is my personal idea.Also I create labyrinth algorithm and bot algorithm.
+
 You can watch game video from 'GameScreenShots/Oynanis.mp4'
+
+This game work on android,desktop and web.
 
 # Game Screen
 ![](GameScreenShots/gameScene.PNG)
